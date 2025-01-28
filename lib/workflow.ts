@@ -21,16 +21,22 @@ export const sendEmail = async ({
   console.log('Sending email to', email)
   console.log('resendToken', config.env.resendToken)
 
-  await qStashClient.publishJSON({
-    api: {
-      name: 'email',
-      provider: resend({ token: config.env.resendToken }),
-    },
-    body: {
-      from: 'SaloRB | University Library <hello.salorb.shop>',
-      to: [email],
-      subject: subject,
-      html: message,
-    },
-  })
+  try {
+    const sendEmailResult = await qStashClient.publishJSON({
+      api: {
+        name: 'email',
+        provider: resend({ token: config.env.resendToken }),
+      },
+      body: {
+        from: 'SaloRB | University Library <hello.salorb.shop>',
+        to: [email],
+        subject: subject,
+        html: message,
+      },
+    })
+
+    console.log('sendEmailResult', sendEmailResult)
+  } catch (error) {
+    console.log('sendEmail error', error)
+  }
 }
