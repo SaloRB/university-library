@@ -18,6 +18,9 @@ export const sendEmail = async ({
   subject: string
   message: string
 }) => {
+  console.log('Sending email to', email)
+  console.log('resendToken', config.env.resendToken)
+
   await qStashClient.publishJSON({
     api: {
       name: 'email',
