@@ -18,25 +18,16 @@ export const sendEmail = async ({
   subject: string
   message: string
 }) => {
-  console.log('Sending email to', email)
-  console.log('resendToken', config.env.resendToken)
-
-  try {
-    const sendEmailResult = await qStashClient.publishJSON({
-      api: {
-        name: 'email',
-        provider: resend({ token: config.env.resendToken }),
-      },
-      body: {
-        from: 'SaloRB | University Library <hello.salorb.shop>',
-        to: [email],
-        subject: subject,
-        html: message,
-      },
-    })
-
-    console.log('sendEmailResult', sendEmailResult)
-  } catch (error) {
-    console.log('sendEmail error', error)
-  }
+  await qStashClient.publishJSON({
+    api: {
+      name: 'email',
+      provider: resend({ token: config.env.resendToken }),
+    },
+    body: {
+      from: 'SaloRB | University Library <hello.salorb.shop>',
+      to: [email],
+      subject: subject,
+      html: message,
+    },
+  })
 }
