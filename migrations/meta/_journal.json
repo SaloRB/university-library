@@ -15,6 +15,13 @@
       "when": 1738182217723,
       "tag": "0001_true_living_lightning",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1738191424271,
+      "tag": "0002_wonderful_lady_ursula",
+      "breakpoints": true
     }
   ]
 }
