@@ -8,6 +8,13 @@
       "when": 1738015618758,
       "tag": "0000_reflective_warlock",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1738182217723,
+      "tag": "0001_true_living_lightning",
+      "breakpoints": true
     }
   ]
 }
